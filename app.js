@@ -1,8 +1,14 @@
 require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
+const { connectDB } = require('./src/infrastructure/repositories/database/mongo/config');
 const app = express();
- 
+
+
+
+// Conexión a Base de Datos
+connectDB();
+
 // Middlewares
 app.use(morgan('dev')); // Logging [cite: 1122]
 app.use(express.json()); // Body Parser [cite: 1129]
